@@ -1,19 +1,19 @@
 import React from 'react';
 import './FormInput.css';  
 
-export default class FormInput extends React.Component {
-    render() {
+const FormInput = props => {
         return (
-            <section role="region" className={this.props.error ? "error" : ""}>
-                <label htmlFor={this.props.value}>{this.props.label}<span className="sub-label">{this.props.subLabel}</span></label> 
+            <section role="region" className={props.error ? "error" : ""}>
+                <label htmlFor={props.value}>{props.label}<span className="sub-label">{props.subLabel}</span></label> 
                 <input 
                     className="text-input" 
-                    id={this.props.value} 
-                    onChange={event => this.props.onChange(event)} 
-                    type={this.props.type}   
+                    id={props.value} 
+                    onChange={event => props.onChange(event)} 
+                    type={props.type}   
                 />
-                   <p className="error-message">{this.props.errorMessage}</p>
+                <p className="error-message">{props.errorMessage}</p>
             </section>
         )
-    }
 }
+
+export default FormInput; 
