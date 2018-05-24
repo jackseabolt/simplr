@@ -2,6 +2,7 @@ import React from 'react';
 import './RegistrationForm.css'
 import Dropdown from 'react-dropdown'
 import FormInput from '../FormInput/FormInput'; 
+import FormCheckbox from '../FormCheckbox/FormCheckbox'; 
 import 'react-dropdown/style.css'
 
 export default class RegistrationForm extends React.Component {
@@ -20,22 +21,21 @@ export default class RegistrationForm extends React.Component {
             business_name: null, 
             username: null, 
             password: null, 
-            website: null 
+            website: null, 
+            terms: false 
         }
     }
     
     handleSubmit(e) {
         e.preventDefault(); 
-        // collect data from form
-        const terms = this.refs.terms.checked; 
-        const policy = this.refs.policy.checked; 
-        // validate
+        // validation
         this.state.email ? this.setState({ error_business_email: false }) : this.setState({ error_business_email: true }); 
         this.state.business_name ? this.setState({ error_business_name: false }) : this.setState({ error_business_name: true });
         this.state.username ? this.setState({ error_username: false }) : this.setState({ error_username: true });
         this.state.password ? this.setState({ error_password: false }) : this.setState({ error_password: true });
         this.state.type ? this.setState({ error_type: false }) : this.setState({ error_type: true });
-        
+        this.state.terms ? this.setState({ error_terms: false }) : this.setState({ error_terms: true });
+        this.state.policy ? this.setState({ error_policy: false }) : this.setState({ error_policy: true });
     }
 
     handleSelectType(value) {
@@ -61,6 +61,14 @@ export default class RegistrationForm extends React.Component {
     handleWebsite(event) {
         this.setState({ website: event.target.value }); 
     }
+
+    handleTerms(event) {
+        this.setState({ terms: event.target.checked })
+    }
+
+    handlePolicy(event) {
+        this.setState({ policy: event.target.checked })
+    }
     
     render() {
 
@@ -73,7 +81,7 @@ export default class RegistrationForm extends React.Component {
                         value="business_name" 
                         label="Business Name" 
                         onChange={event => this.handleBusinessName(event)}
-                        error={this.state.error_business_email}
+                        error={this.state.error_business_name}
                         errorMessage="Please enter a valid business address"
                     />
                     <FormInput 
@@ -112,20 +120,20 @@ export default class RegistrationForm extends React.Component {
                         />
                         <p className="error-message">Please select a valid business type</p>
                     </section>
-                    <section role="region">
-                        <h4>Terms of Service</h4>
-                        <label className="container">I have read and do accept <a href="#">terms of services</a>
-                            <input type="checkbox" ref="terms"/>
-                            <span className="checkmark"></span>
-                        </label>
-                    </section>
-                    <section role="region">
-                        <h4>Privacy Policy</h4>
-                        <label className="container">I have read and do accept <a href="#">privacy policy</a>
-                            <input type="checkbox" ref="policy" />
-                            <span className="checkmark"></span>
-                        </label>
-                    </section>
+                    <FormCheckbox 
+                        title="Terms of Service" 
+                        topic="terms of service"
+                        onChange={event => this.handleTerms(event)}
+                        error={this.state.error_terms}
+                        errorMessage="Please agree to the terms of service"
+                    />
+                    <FormCheckbox 
+                        title="Privacy Policy" 
+                        topic="privacy policy"
+                        onChange={event => this.handlePolicy(event)}
+                        error={this.state.error_policy}
+                        errorMessage="Please agree to our privacy policy"
+                    />
                     <button>REGISTER</button>
                 </form>
             </main>
