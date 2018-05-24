@@ -1,0 +1,193 @@
+/* top-level component class */
+
+.RegistrationForm {
+    width: 600px; 
+    padding: 30px; 
+    background-color: rgb(255, 255, 255); 
+    box-shadow: 0px 0px 5px #cacaca;
+}
+
+
+/* element styles */
+
+a {
+    border-bottom: solid 1px #54618b;
+    display: inline;
+    text-decoration: none; 
+    padding-bottom: 0px;
+    color:  #54618b; 
+}
+
+button {
+    padding: 13px 50px; 
+    color: #fff; 
+    font-size: 18px; 
+    background-color: rgb(128, 193, 236); 
+    border: 0px; 
+    display: block; 
+    margin: 100px auto 10px; 
+    cursor: pointer; 
+    transition: 0.3s;
+    font-family: 'Lato', sans-serif; 
+}
+
+button:hover {
+    background-color: rgb(108, 154, 184);
+}
+
+form {
+    width: 322px; 
+    margin: 0px auto; 
+}
+
+h1 {
+    text-align: center; 
+    color: #4ab2dd; 
+    margin-top: 0px; 
+}
+
+h4 {
+    font-size: 14px; 
+    color: rgb(37, 37, 37); 
+    margin: 30px 0px 7px; 
+}
+
+section {
+    margin: 15px 0px; 
+}
+
+img {
+    width: 100px; 
+}
+
+/* class styles */
+
+.sub-label {
+    color: grey; 
+    font-size: 12px; 
+    margin-left: 10px; 
+}
+
+.text-input {
+    width: calc(100% - 22px); 
+    border: 1px solid rgb(211, 211, 211); 
+    background-color: rgb(241, 241, 241); 
+    padding: 10px; 
+    color: rgb(36, 36, 36); 
+    margin: 5px 0px; 
+    font-size: 16px; 
+}
+
+.dropdown {
+    width: 100%; 
+    margin: 5px 0px; 
+}
+
+
+/* dropdown styles */
+
+.error .text-input {
+    border: 1px solid red !important; 
+}
+
+.error-dropdown {
+    border: 1px solid red !important; 
+}
+
+.error-message {
+    font-size: 14px; 
+    color: red; 
+    margin: 0px; 
+    display: none; 
+}
+.error .error-message {
+    display: block; 
+}
+
+.Dropdown-control {
+    padding-top: 10px !important; 
+    padding-bottom: 10px !important;
+    border: 1px solid #4ab2dd !important;
+    border-radius: 0px !important; 
+}
+
+.Dropdown-arrow {
+    top: 16px !important; 
+    border-color: transparent transparent #999 !important;
+    border-width: 0 5px 5px !important;
+}
+
+.is-open .Dropdown-arrow {
+    border-color: #999 transparent transparent !important;
+    border-width: 5px 5px 0 !important;
+  }
+
+
+/* radio button styles */ 
+
+.container {
+    color: grey; 
+    display: block;
+    position: relative;
+    top:2px;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: rgb(29, 29, 29);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
