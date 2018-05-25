@@ -143,12 +143,14 @@ export default class RegistrationForm extends React.Component {
                     <FormCheckbox 
                         title="Terms of Service" 
                         topic="terms of service"
+                        link="#"
                         onChange={event => this.setState({ terms: event.target.checked })}
                         error={this.state.error_terms}
                     />
                     <FormCheckbox 
                         title="Privacy Policy" 
                         topic="privacy policy"
+                        link="#"
                         onChange={event => this.setState({ policy: event.target.checked })}
                         error={this.state.error_policy}
                     />
