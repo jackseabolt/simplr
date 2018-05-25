@@ -12,5 +12,6 @@
     color: rgb(36, 36, 36); 
     margin: 5px 0px; 
     font-size: 16px;
-    box-shadow: none !important;
+    border-radius: 0px; 
+    -webkit-appearance: none;
 }
