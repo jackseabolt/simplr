@@ -72,6 +72,7 @@ export default class RegistrationForm extends React.Component {
         }); 
         validate
             .then(() => {
+                // check if errors exist - block submission if they do
                 if(this.state.error_business_email || this.state.error_business_name || this.state.error_username || this.state.error_password || this.state.error_type || this.state.error_terms || this.state.error_policy ) {
                     return; 
                 } else {
