@@ -1,10 +1,8 @@
 import React from 'react';
-import Dropdown from 'react-dropdown'
-import FormInput from '../FormInput/FormInput'; 
-import FormCheckbox from '../FormCheckbox/FormCheckbox'; 
-import FormDropdown from '../FormDropdown/FormDropdown'; 
-import './RegistrationForm.css'
-import 'react-dropdown/style.css'
+import FormInput from '../FormInput'; 
+import FormCheckbox from '../FormCheckbox'; 
+import FormDropdown from '../FormDropdown'; 
+import './RegistrationForm.css'; 
 
 export default class RegistrationForm extends React.Component {
     constructor(props) {
@@ -124,7 +122,7 @@ export default class RegistrationForm extends React.Component {
                         subLabel="6 characters | 1 uppercase | 1 lowercase | 1 digit"
                         type="password"
                     />
-                     <FormInput 
+                    <FormInput 
                         value="website" 
                         label="Website" 
                         onChange={event => this.setState({ website: event.target.value })}

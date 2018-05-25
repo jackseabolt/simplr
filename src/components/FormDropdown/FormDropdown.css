@@ -1,0 +1,22 @@
+.dropdown {
+    width: 100%; 
+    margin: 5px 0px; 
+}
+
+.Dropdown-control {
+    padding-top: 10px !important; 
+    padding-bottom: 10px !important;
+    border: 1px solid #4ab2dd !important;
+    border-radius: 0px !important; 
+}
+
+.Dropdown-arrow {
+    top: 16px !important; 
+    border-color: transparent transparent #999 !important;
+    border-width: 0 5px 5px !important;
+}
+
+.is-open .Dropdown-arrow {
+    border-color: #999 transparent transparent !important;
+    border-width: 5px 5px 0 !important;
+}
