@@ -46,14 +46,18 @@ a {
     pointer-events: auto;
 }
 
+a:hover ~ .checkmark {
+    background-color: #eee !important;
+}
+
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a black background */
 .container input:checked ~ .checkmark {
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(29, 29, 29) !important;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
