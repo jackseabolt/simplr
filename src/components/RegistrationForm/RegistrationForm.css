@@ -37,11 +37,12 @@
     text-align: center; 
     color: #4ab2dd; 
     margin-top: 0px; 
+    font-weight: 100; 
 }
 
 .RegistrationForm h4 {
     font-size: 14px; 
-    color: rgb(37, 37, 37); 
+    color: rgb(48, 48, 48); 
     margin: 30px 0px 7px; 
 }
 
