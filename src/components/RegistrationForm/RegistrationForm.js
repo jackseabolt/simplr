@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from 'react-dropdown'
 import FormInput from '../FormInput/FormInput'; 
 import FormCheckbox from '../FormCheckbox/FormCheckbox'; 
+import FormDropdown from '../FormDropdown/FormDropdown'; 
 import './RegistrationForm.css'
 import 'react-dropdown/style.css'
 
@@ -129,17 +130,11 @@ export default class RegistrationForm extends React.Component {
                         onChange={event => this.setState({ website: event.target.value })}
                         subLabel="(Optional)"
                     />
-                    <section className={this.state.error_type ? "error" : ""}>
-                        <label htmlFor="type">Type of Business</label> 
-                        <Dropdown 
-                            className={this.state.error_type ? "dropdown error-dropdown" : "dropdown"} 
-                            options={["Accounting Firm", "Law Office", "Marketing Agency", "Other"]} 
-                            onChange={e => this.setState({ type: e.value })} 
-                            value={this.state.type}
-                            placeholder="Select your Business" id="type"
-                        />
-                        <p className="error-message">Please select a valid business type</p>
-                    </section>
+                    <FormDropdown 
+                        error={this.state.error_type}
+                        onChange={value => this.setState({ type: value.type })}
+                        type={this.state.type}
+                    />
                     <FormCheckbox 
                         title="Terms of Service" 
                         topic="terms of service"
