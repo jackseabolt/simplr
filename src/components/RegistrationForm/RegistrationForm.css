@@ -82,8 +82,9 @@ img {
 @media screen and (max-width: 660px) {
     .RegistrationForm {
         width: calc(100% - 60px); 
-        position: relative; 
-        left: 5px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        padding: 30px;  
     }
     h1 {
         font-size: 25px; 
