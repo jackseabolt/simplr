@@ -1,4 +1,3 @@
-
 const validate = (email, business_name, username, type, terms, policy, password, passFunc) => {
     return new Promise((resolve, reject) => {
         email ? passFunc({ error_business_email: null }) : passFunc({ error_business_email: "Please enter a valid business email" }); 
