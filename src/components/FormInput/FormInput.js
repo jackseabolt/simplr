@@ -11,7 +11,7 @@ const FormInput = props => {
                 onChange={event => props.onChange(event)} 
                 type={props.type}   
             />
-            <p className="error-message">{props.errorMessage}</p>
+            <p className="error-message">{props.error}</p>
         </section>
     )
 }

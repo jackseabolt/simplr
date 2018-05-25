@@ -9,19 +9,22 @@ export default class RegistrationForm extends React.Component {
     constructor(props) {
         super(props); 
         this.state={ 
-            error_business_name: false,
-            error_business_email: false,
-            error_username: false, 
-            error_password: false, 
-            error_type: false, 
-            error_terms: false, 
-            error_policy: false, 
+            // handles errors - null or a string
+            error_business_name: null,
+            error_business_email: null,
+            error_username: null, 
+            error_password: null, 
+            error_type: null, 
+            error_terms: null, 
+            error_policy: null,
+            // stores form values - null or a string
             email: null,
             business_name: null, 
             username: null, 
             password: null, 
             website: null, 
-            terms: false 
+            terms: false, 
+            policy: false
         }
     }
     
@@ -29,13 +32,18 @@ export default class RegistrationForm extends React.Component {
         e.preventDefault(); 
         // validation - promise needed to ensure errors are set before they are checked
         const validate = new Promise((resolve, reject) => {
-            this.state.email ? this.setState({ error_business_email: false }) : this.setState({ error_business_email: true }); 
-            this.state.business_name ? this.setState({ error_business_name: false }) : this.setState({ error_business_name: true });
-            this.state.username ? this.setState({ error_username: false }) : this.setState({ error_username: true });
-            this.state.password ? this.setState({ error_password: false }) : this.setState({ error_password: true });
-            this.state.type ? this.setState({ error_type: false }) : this.setState({ error_type: true });
-            this.state.terms ? this.setState({ error_terms: false }) : this.setState({ error_terms: true });
-            this.state.policy ? this.setState({ error_policy: false }) : this.setState({ error_policy: true });
+            this.state.email ? this.setState({ error_business_email: null }) : this.setState({ error_business_email: "Please enter a valid business email" }); 
+            this.state.business_name ? this.setState({ error_business_name: null }) : this.setState({ error_business_name: "Please enter a valid business address" });
+            this.state.username ? this.setState({ error_username: null }) : this.setState({ error_username: "Please enter a valid username" });
+            this.state.type ? this.setState({ error_type: null }) : this.setState({ error_type: true });
+            this.state.terms ? this.setState({ error_terms: null }) : this.setState({ error_terms: "Please agree to the terms of service" });
+            this.state.policy ? this.setState({ error_policy: null }) : this.setState({ error_policy: "Please agree to our privacy policy" });
+            if(this.state.password) {
+                this.setState({ error_password: false }) 
+            } 
+            else {
+                this.setState({ error_password: "Please enter a valid password" });
+            }
             resolve(); 
         })
         validate
@@ -53,7 +61,7 @@ export default class RegistrationForm extends React.Component {
                         website: this.state.website
                      })
                     // stand-in purposes only
-                    alert("Your form was submitted")
+                    alert("Your form was submitted");
                 }
             })
     }
@@ -69,28 +77,24 @@ export default class RegistrationForm extends React.Component {
                         label="Business Name" 
                         onChange={event => this.setState({ business_name: event.target.value })}
                         error={this.state.error_business_name}
-                        errorMessage="Please enter a valid business address"
                     />
                     <FormInput 
                         value="business_email" 
                         label="Business Email" 
                         onChange={event => this.setState({ email: event.target.value })}
                         error={this.state.error_business_email}
-                        errorMessage="Please enter a valid business name"
                     />
                     <FormInput 
                         value="username" 
                         label="Create a Username" 
                         onChange={event => this.setState({ username: event.target.value })}
                         error={this.state.error_username}
-                        errorMessage="Please enter a valid username"
                     />
                     <FormInput 
                         value="password" 
                         label="Password" 
                         onChange={event => this.setState({ password: event.target.value })}
                         error={this.state.error_password}
-                        errorMessage="Please enter a valid password"
                         subLabel="6 characters | 1 uppercase | 1 lowercase | 1 digit"
                         type="password"
                     />
@@ -116,14 +120,12 @@ export default class RegistrationForm extends React.Component {
                         topic="terms of service"
                         onChange={event => this.setState({ terms: event.target.checked })}
                         error={this.state.error_terms}
-                        errorMessage="Please agree to the terms of service"
                     />
                     <FormCheckbox 
                         title="Privacy Policy" 
                         topic="privacy policy"
                         onChange={event => this.setState({ policy: event.target.checked })}
                         error={this.state.error_policy}
-                        errorMessage="Please agree to our privacy policy"
                     />
                     <button>REGISTER</button>
                 </form>
