@@ -57,16 +57,8 @@ export default class RegistrationForm extends React.Component {
                 }
             })
     }
-
-    handleSelect(e) {
-        console.log(e.value)
-        this.setState({ type: e.value })
-    }
     
     render() {
-
-        const options = [{value:"Law Office", label: "Law Office"}, {value: "Accounting Firm", label: "Accounting Firm"}]; 
-
         return (
             <main role="main" className="RegistrationForm">
                 <img alt="Simplr Logo" src={require("../../images/logo.png")} />
@@ -112,9 +104,8 @@ export default class RegistrationForm extends React.Component {
                         <label htmlFor="type">Type of Business</label> 
                         <Dropdown 
                             className={this.state.error_type ? "dropdown error-dropdown" : "dropdown"} 
-                            options={options} 
-                            // onChange={e => this.setState({ type: e.value })} 
-                            onChange={e => this.handleSelect(e)} 
+                            options={["Accounting Firm", "Law Office", "Marketing Agency", "Other"]} 
+                            onChange={e => this.setState({ type: e.value })} 
                             value={this.state.type}
                             placeholder="Select your Business" id="type"
                         />
