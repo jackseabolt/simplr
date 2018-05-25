@@ -55,7 +55,7 @@ export default class RegistrationForm extends React.Component {
     
     render() {
         return (
-            <section role="main" className="RegistrationForm">
+            <section className="RegistrationForm">
                 <img alt="Simplr Logo" src={require("../../images/logo.png")} />
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <h1>LET'S GET STARTED</h1>
