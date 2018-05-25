@@ -9,7 +9,7 @@ export default class RegistrationForm extends React.Component {
     constructor(props) {
         super(props); 
         this.state={ 
-            // handles errors - null or a string
+            // stores form errors - null or a string
             error_business_name: null,
             error_business_email: null,
             error_username: null, 
@@ -39,13 +39,37 @@ export default class RegistrationForm extends React.Component {
             this.state.terms ? this.setState({ error_terms: null }) : this.setState({ error_terms: "Please agree to the terms of service" });
             this.state.policy ? this.setState({ error_policy: null }) : this.setState({ error_policy: "Please agree to our privacy policy" });
             if(this.state.password) {
-                this.setState({ error_password: false }) 
+                // checking password length
+                if(this.state.password.length >= 6) {
+                    // checking password for numbers
+                    if(/\d/.test(this.state.password)) {
+                        // checking password for uppercase letter 
+                        if(/[A-Z]/.test(this.state.password)) {
+                            // checking password for lowercase letter
+                            if(/[a-z]/.test(this.state.password)) {
+                                this.setState({ error_password: false }) 
+                            }
+                            else {
+                                this.setState({ error_password: "Password should contain a lowercase letter" });  
+                            }
+                        }
+                        else {
+                            this.setState({ error_password: "Password should contain an uppercase letter" });  
+                        }
+                    }
+                    else {
+                        this.setState({ error_password: "Password should contain a number" });
+                    }
+                } 
+                else {
+                    this.setState({ error_password: "Password should have six characters" });
+                } 
             } 
             else {
                 this.setState({ error_password: "Please enter a valid password" });
             }
             resolve(); 
-        })
+        }); 
         validate
             .then(() => {
                 if(this.state.error_business_email || this.state.error_business_name || this.state.error_username || this.state.error_password || this.state.error_type || this.state.error_terms || this.state.error_policy ) {
@@ -63,7 +87,7 @@ export default class RegistrationForm extends React.Component {
                     // stand-in purposes only
                     alert("Your form was submitted");
                 }
-            })
+            });
     }
     
     render() {
@@ -130,6 +154,6 @@ export default class RegistrationForm extends React.Component {
                     <button>REGISTER</button>
                 </form>
             </main>
-        )
+        );
     }
 }
