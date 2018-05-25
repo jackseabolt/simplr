@@ -4,13 +4,13 @@
     width: 600px; 
     padding: 30px; 
     background-color: rgb(255, 255, 255); 
-    box-shadow: 0px 0px 5px #cacaca;
+    box-shadow: 0px 2px 6px #bebebe;
 }
 
 
 /* element styles */
 
-button {
+.RegistrationForm button {
     padding: 13px 50px; 
     color: #fff; 
     font-size: 18px; 
@@ -23,32 +23,28 @@ button {
     font-family: 'Lato', sans-serif; 
 }
 
-button:hover {
+.RegistrationForm button:hover {
     background-color: rgb(108, 154, 184);
 }
 
-form {
+.RegistrationForm form {
     width: 322px; 
     margin: 0px auto; 
 }
 
-h1 {
+.RegistrationForm h1 {
     text-align: center; 
     color: #4ab2dd; 
     margin-top: 0px; 
 }
 
-h4 {
+.RegistrationForm h4 {
     font-size: 14px; 
     color: rgb(37, 37, 37); 
     margin: 30px 0px 7px; 
 }
 
-section {
-    margin: 15px 0px; 
-}
-
-img {
+.RegistrationForm img {
     width: 100px; 
 }
 
@@ -87,14 +83,14 @@ img {
         padding: 0px; 
         box-shadow: none; 
     }
-    h1 {
+    .RegistrationForm h1 {
         font-size: 25px; 
         margin-top: 30px; 
     }
 }
 
 @media screen and (max-width: 400px) {
-    form {
+    .RegistrationForm form {
         width: 100%; 
     }
 }

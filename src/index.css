@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+section {
+  margin: 15px 0px; 
+}
+
 /* error styles */
 
 .error .text-input {
