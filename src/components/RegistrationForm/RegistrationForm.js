@@ -93,7 +93,7 @@ export default class RegistrationForm extends React.Component {
     
     render() {
         return (
-            <main role="main" className="RegistrationForm">
+            <section role="main" className="RegistrationForm">
                 <img alt="Simplr Logo" src={require("../../images/logo.png")} />
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <h1>LET'S GET STARTED</h1>
@@ -156,7 +156,7 @@ export default class RegistrationForm extends React.Component {
                     />
                     <button>REGISTER</button>
                 </form>
-            </main>
+            </section>
         );
     }
 }
