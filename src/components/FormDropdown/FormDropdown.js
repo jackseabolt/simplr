@@ -3,13 +3,12 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
 import './FormDropdown.css'; 
 
-
 const FormDropdown = props => {
     return (
-        <section className={props.error_type ? "error" : ""}>
+        <section className={props.error ? "error" : ""}>
             <label htmlFor="type">Type of Business</label> 
             <Dropdown 
-                className={props.error_type ? "dropdown error-dropdown" : "dropdown"} 
+                className={props.error ? "dropdown error-dropdown" : "dropdown"} 
                 options={["Accounting Firm", "Law Office", "Marketing Agency", "Other"]} 
                 onChange={e => props.onChange({ type: e.value })} 
                 value={props.type}

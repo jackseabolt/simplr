@@ -1,7 +1,8 @@
 import React from 'react';
 import FormInput from '../FormInput'; 
 import FormCheckbox from '../FormCheckbox'; 
-import FormDropdown from '../FormDropdown'; 
+import FormDropdown from '../FormDropdown/FormDropdown'; 
+import validate from '../../helpers/validate'; 
 import './RegistrationForm.css'; 
 
 export default class RegistrationForm extends React.Component {
@@ -23,53 +24,15 @@ export default class RegistrationForm extends React.Component {
             password: null, 
             website: null, 
             terms: false, 
-            policy: false
+            policy: false, 
+            type: null
         }
     }
     
     handleSubmit(e) {
         e.preventDefault(); 
-        // validation - promise needed to ensure errors are set before they are checked
-        const validate = new Promise((resolve, reject) => {
-            this.state.email ? this.setState({ error_business_email: null }) : this.setState({ error_business_email: "Please enter a valid business email" }); 
-            this.state.business_name ? this.setState({ error_business_name: null }) : this.setState({ error_business_name: "Please enter a valid business address" });
-            this.state.username ? this.setState({ error_username: null }) : this.setState({ error_username: "Please enter a valid username" });
-            this.state.type ? this.setState({ error_type: null }) : this.setState({ error_type: true });
-            this.state.terms ? this.setState({ error_terms: null }) : this.setState({ error_terms: "Please agree to the terms of service" });
-            this.state.policy ? this.setState({ error_policy: null }) : this.setState({ error_policy: "Please agree to our privacy policy" });
-            if(this.state.password) {
-                // checking password length
-                if(this.state.password.length >= 6) {
-                    // checking password for numbers
-                    if(/\d/.test(this.state.password)) {
-                        // checking password for uppercase letter 
-                        if(/[A-Z]/.test(this.state.password)) {
-                            // checking password for lowercase letter
-                            if(/[a-z]/.test(this.state.password)) {
-                                this.setState({ error_password: false }) 
-                            }
-                            else {
-                                this.setState({ error_password: "Password should contain a lowercase letter" });  
-                            }
-                        }
-                        else {
-                            this.setState({ error_password: "Password should contain an uppercase letter" });  
-                        }
-                    }
-                    else {
-                        this.setState({ error_password: "Password should contain a number" });
-                    }
-                } 
-                else {
-                    this.setState({ error_password: "Password should have six characters" });
-                } 
-            } 
-            else {
-                this.setState({ error_password: "Please enter a valid password" });
-            }
-            resolve(); 
-        }); 
-        validate
+        // validation - module imported from helpers
+        validate(this.state.email, this.state.business_name, this.state.username, this.state.type, this.state.terms, this.state.policy, this.state.password, (v) => this.setState(v))
             .then(() => {
                 // check if errors exist - block submission if they do
                 if(this.state.error_business_email || this.state.error_business_name || this.state.error_username || this.state.error_password || this.state.error_type || this.state.error_terms || this.state.error_policy ) {

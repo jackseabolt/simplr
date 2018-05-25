@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RegistrationFrom from '../RegistrationForm/RegistrationForm'; 
+import RegistrationFrom from '../RegistrationForm'; 
 import './App.css';
 
 class App extends Component {

@@ -1,4 +1,7 @@
-a {
+
+
+.container a {
+    pointer-events: auto;
     border-bottom: solid 1px #69b6e6;
     display: inline;
     text-decoration: none; 
@@ -7,9 +10,6 @@ a {
     cursor: pointer; 
 }
 
-.container a {
-    pointer-events: auto;
-}
 
 .container {
     color: grey; 
@@ -46,6 +46,7 @@ a {
     pointer-events: auto;
 }
 
+/* prevents hover effect when over a tag */
 a:hover ~ .checkmark {
     background-color: #eee !important;
 }
