@@ -6,6 +6,7 @@ const validate = (email, business_name, username, type, terms, policy, password,
         terms ? passFunc({ error_terms: null }) : passFunc({ error_terms: "Please agree to the terms of service" });
         policy ? passFunc({ error_policy: null }) : passFunc({ error_policy: "Please agree to our privacy policy" });
         if(email) {
+            // checking is string contains @ 
             if(/@/.test(email)) {
                 passFunc({ error_business_email: null }) 
             }
