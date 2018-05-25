@@ -57,8 +57,15 @@ export default class RegistrationForm extends React.Component {
                 }
             })
     }
+
+    handleSelect(e) {
+        console.log(e.value)
+        this.setState({ type: e.value })
+    }
     
     render() {
+
+        const options = [{value:"Law Office", label: "Law Office"}, {value: "Accounting Firm", label: "Accounting Firm"}]; 
 
         return (
             <main role="main" className="RegistrationForm">
@@ -105,8 +112,10 @@ export default class RegistrationForm extends React.Component {
                         <label htmlFor="type">Type of Business</label> 
                         <Dropdown 
                             className={this.state.error_type ? "dropdown error-dropdown" : "dropdown"} 
-                            options={["Law Office", "Accounting Firm", "Construction"]} 
-                            onChange={e => this.setState({ type: e.value })} 
+                            options={options} 
+                            // onChange={e => this.setState({ type: e.value })} 
+                            onChange={e => this.handleSelect(e)} 
+                            value={this.state.type}
                             placeholder="Select your Business" id="type"
                         />
                         <p className="error-message">Please select a valid business type</p>

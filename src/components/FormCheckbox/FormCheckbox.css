@@ -1,4 +1,10 @@
-/* radio button styles */ 
+a {
+    border-bottom: solid 1px #418fc0;
+    display: inline;
+    text-decoration: none; 
+    padding-bottom: 0px;
+    color:  #418fc0; 
+}
 
 .container {
     color: grey; 

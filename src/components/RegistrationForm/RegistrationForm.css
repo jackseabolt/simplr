@@ -10,14 +10,6 @@
 
 /* element styles */
 
-a {
-    border-bottom: solid 1px #54618b;
-    display: inline;
-    text-decoration: none; 
-    padding-bottom: 0px;
-    color:  #54618b; 
-}
-
 button {
     padding: 13px 50px; 
     color: #fff; 
@@ -60,44 +52,6 @@ img {
     width: 100px; 
 }
 
-/* class styles */
-
-.sub-label {
-    color: grey; 
-    font-size: 12px; 
-    margin-left: 10px; 
-}
-
-.text-input {
-    width: calc(100% - 22px); 
-    border: 1px solid rgb(211, 211, 211); 
-    background-color: rgb(241, 241, 241); 
-    padding: 10px; 
-    color: rgb(36, 36, 36); 
-    margin: 5px 0px; 
-    font-size: 16px; 
-}
-
-
-/* error styles */
-
-.error .text-input {
-    border: 1px solid red !important; 
-}
-
-.error-dropdown {
-    border: 1px solid red !important; 
-}
-
-.error-message {
-    font-size: 14px; 
-    color: red; 
-    margin: 0px; 
-    display: none; 
-}
-.error .error-message {
-    display: block; 
-}
 
 /* dropdown styles */
 
