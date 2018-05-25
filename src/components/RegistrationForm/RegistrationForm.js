@@ -31,7 +31,7 @@ export default class RegistrationForm extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault(); 
-        // validation - module imported from helpers
+        // validation - module imported from helpers for setting errors in state
         validate(this.state.email, this.state.business_name, this.state.username, this.state.type, this.state.terms, this.state.policy, this.state.password, (v) => this.setState(v))
             .then(() => {
                 // check if errors exist - block submission if they do
